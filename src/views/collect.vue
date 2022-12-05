@@ -2,7 +2,7 @@
  * @Author: bzirs
  * @Date: 2022-12-04 15:59:51
  * @LastEditors: bzirs
- * @LastEditTime: 2022-12-04 23:00:38
+ * @LastEditTime: 2022-12-05 21:58:21
  * @FilePath: /interview/src/views/collect.vue
  * @Description: 收藏页
  *
@@ -14,7 +14,12 @@
     <van-nav-bar title="收藏" fixed></van-nav-bar>
     <!-- cell列表 -->
     <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
-      <article-item v-for="it in list" :key="it.id" :item="it"></article-item>
+      <article-item
+        v-for="it in list"
+        :key="it.id"
+        :item="it"
+        @click.native="$router.push({ name: 'detail', params: { id: it.id } })"
+      ></article-item>
     </van-list>
   </div>
 </template>
@@ -47,7 +52,9 @@ export default {
         const {
           data: { rows }
         } = await getCollctList(this.reqObj)
-        // this.list.push(...rows)
+        this.list.push(...rows)
+        console.log(this.list)
+        this.reqObj.page++
         // 加载动画结束
         !rows.length && (this.finished = true)
         this.loading = false
