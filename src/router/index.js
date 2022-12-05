@@ -2,7 +2,7 @@
  * @Author: bzirs
  * @Date: 2022-12-03 21:50:39
  * @LastEditors: bzirs
- * @LastEditTime: 2022-12-04 20:36:53
+ * @LastEditTime: 2022-12-05 20:45:28
  * @FilePath: /interview/src/router/index.js
  * @Description: 路由
  * @

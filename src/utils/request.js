@@ -2,7 +2,7 @@
  * @Author: bzirs
  * @Date: 2022-12-04 14:53:46
  * @LastEditors: bzirs
- * @LastEditTime: 2022-12-04 21:16:36
+ * @LastEditTime: 2022-12-05 21:25:37
  * @FilePath: /interview/src/utils/request.js
  * @Description: axios拦截器
  * @
@@ -63,6 +63,7 @@ request.interceptors.response.use(
       delToken()
       router.push('/login')
     }
+    if (status === 422) router.push('/')
     Toast.fail(message)
 
     return Promise.reject(error)

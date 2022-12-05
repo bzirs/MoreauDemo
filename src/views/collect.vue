@@ -11,7 +11,7 @@
 <template>
   <div class="collect-page">
     <!-- 顶部栏 -->
-    <van-nav-bar title="面经收藏" fixed></van-nav-bar>
+    <van-nav-bar title="收藏" fixed></van-nav-bar>
     <!-- cell列表 -->
     <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
       <article-item v-for="it in list" :key="it.id" :item="it"></article-item>

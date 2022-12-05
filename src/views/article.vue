@@ -2,7 +2,7 @@
  * @Author: bzirs
  * @Date: 2022-12-04 15:59:51
  * @LastEditors: bzirs
- * @LastEditTime: 2022-12-04 23:02:47
+ * @LastEditTime: 2022-12-05 20:53:56
  * @FilePath: /interview/src/views/article.vue
  * @Description: 面经首页
  *
@@ -21,11 +21,16 @@
     </nav>
     <!-- cell列表 -->
     <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
-      <article-item v-for="it in list" :key="it.id" :item="it"></article-item>
+      <article-item
+        v-for="it in list"
+        :key="it.id"
+        :item="it"
+        @click.native="$router.push({ name: 'detail', params: { id: it.id } })"
+      ></article-item>
+      <!-- 默认给组件添加事件是$emit()传上来的事件 注册原生事件要用native修饰符 -->
     </van-list>
   </div>
 </template>
-
 <script>
 import ArticleItem from '@/components/ArticleItem.vue'
 
